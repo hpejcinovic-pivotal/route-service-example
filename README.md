@@ -30,12 +30,14 @@ cf cli 6.15.0+29a6079-2016-02-23 +
 - open three terminals
 
 - from terminal 1: 
+~~~
 cd protected-rest-service
 gradle build
 cf push --no-start
 cf enable-diego protected-rest-service
 cf start protected-rest-service
 cf tail protected-rest-service
+~~~
 
 - from terminal 2:
 cd security-service
@@ -66,6 +68,7 @@ you should get back
 
 If you'd like to invoke the protected-rest-service from another rest client you can use the third project
 - from terminal 3: 
+
 cd rest-client
 gradle build 
 cf push --no-start
