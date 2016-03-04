@@ -1,0 +1,9 @@
+---
+applications:
+- name: rest-client
+  memory: 256M
+  instances: 1
+  path: build/libs/gs-consuming-rest-0.1.0.jar
+  #path: target/gs-consuming-rest-0.1.0.jar
+  env:
+    x-cf-greetingServiceAuthToken: A59MDEBgiKP5nqiky5muIA7uAGGdyvKpZmerrczPXAwGDPmnAPKAzqwcoEliS0DsV2o3jhg2A0r4du

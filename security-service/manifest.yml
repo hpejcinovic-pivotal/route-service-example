@@ -1,0 +1,8 @@
+---
+applications:
+- name: security-service
+  memory: 256M
+  instances: 1
+  path: build/libs/gs-rest-service-0.1.0.jar  
+  env:
+    x-cf-greetingServiceAuthToken: A59MDEBgiKP5nqiky5muIA7uAGGdyvKpZmerrczPXAwGDPmnAPKAzqwcoEliS0DsV2o3jhg2A0r4du
