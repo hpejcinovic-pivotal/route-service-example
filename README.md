@@ -17,8 +17,11 @@ There are three projects to demonstrate this
 
 ## Requirements
 CF like environment or Bosh-lite (cf/230+) (diego/0.1452.0+)
+
 java 1.8 +
+
 gradle
+
 cf cli 6.15.0+29a6079-2016-02-23 +
 
 ## Getting Started
