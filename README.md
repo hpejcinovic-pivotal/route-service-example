@@ -56,8 +56,8 @@ cf bind-route-service bosh-lite.com sec-route-service --hostname protected-rest-
 ~~~
 
 1. test the security-service from Postman (www.getpostman.com) or similar by invoking
-https://protected-rest-service.bosh-lite.com/greeting?name=jo..
-2. You should get HTTP 404..
+https://protected-rest-service.bosh-lite.com/greeting?name=jo
+2. You should get HTTP 404
 3. now try https://protected-rest-service.bosh-lite.com/greeting?name=jo
 but add a http header in the request
 x-cf-greetingServiceAuthToken: A59MDEBgiKP5nqiky5muIA7uAGGdyvKpZmerrczPXAwGDPmnAPKAzqwcoEliS0DsV2o3jhg2A0r4du
@@ -66,7 +66,7 @@ x-cf-greetingServiceAuthToken: A59MDEBgiKP5nqiky5muIA7uAGGdyvKpZmerrczPXAwGDPmnA
 
 
 
--If you'd like to invoke the protected-rest-service from another rest client via api you can use the third project rest-client
+- If you'd like to invoke the protected-rest-service from another rest client via api you can use the third project rest-client
 from terminal 3: 
 ~~~
 cd rest-client
