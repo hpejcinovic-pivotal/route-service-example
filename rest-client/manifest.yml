@@ -7,3 +7,4 @@ applications:
   #path: target/gs-consuming-rest-0.1.0.jar
   env:
     x-cf-greetingServiceAuthToken: A59MDEBgiKP5nqiky5muIA7uAGGdyvKpZmerrczPXAwGDPmnAPKAzqwcoEliS0DsV2o3jhg2A0r4du
+    urlToInvoke: http://protected-rest-service.bosh-lite.com/greeting?name=

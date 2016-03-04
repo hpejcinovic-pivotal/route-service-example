@@ -16,12 +16,13 @@ import org.springframework.web.client.RestTemplate;
 public class RestConsumer {
 
 	private static String greetingServiceAuthTokenName = "x-cf-greetingServiceAuthToken";
-	private static String urlToInvoke="http://rest-service.bosh-lite.com/greeting?name=";
+	
     private static final Logger log = LoggerFactory.getLogger(RestConsumer.class);
 
     
     @RequestMapping("/sayHi")
     public String greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    	String urlToInvoke=System.getenv("urlToInvoke");
     	log.info("--->Invoking remote service urlToInvoke:" + urlToInvoke);
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();

@@ -1,17 +1,18 @@
-#Service Route Example 
+#Route Service Example 
 
-Example focusing on securing a REST web service
+Example focusing on securing a REST web service with Cloud Foundry route-service feature
 
 ## Route Service Overview
 
 This is an example of how to use route service for Cloud Foundry. Example focuses on how to secure a rest web service with 
-a security service. Implementation is done via shared secret token. If you want to consume a protected web
-service, you need to invoke it with the secret token passed via HTTP header. These examples were developed on bosh-lite
+a security service. Implementation is done via shared secret token. You can extend this to use OAuth etc.
+If you want to invoke a protected web service, you need to invoke it with the secret token passed via HTTP header, otherwise you get 404.
+These examples were developed on bosh-lite, but should work on PCF 1.7+, CF 230+ 
 
 There are three projects to demonstrate this 
 
 - protected-rest-service : is the service we want to protect from public access
-- security-service : implements the security of the protected-rest-service. It will only let you invoke it, if you know the token
+- security-service : implements the security of the protected-rest-service. It will only let you invoke it, if you provide the token
 - rest-client : sample rest client that wants to consume the protected-rest-service by passing in the secret token
 
 ## Requirements
@@ -60,6 +61,19 @@ you should get back
 {"id":1,"content":"Hello, jo!"}
 
 
+If you'd like to invoke the protected-rest-service from another rest client you can use the third project
+- from terminal 3: 
+cd rest-client
+gradle build 
+cf push --no-start
+cf enable-diego rest-client
+cf start rest-client
+
+The token in this service is provided in manifest.yml To test the service you can use postman and invoke
+https://rest-client.bosh-lite.com/sayHi?name=h you should get something like
+Response from REST Client:{"id":3,"content":"Hello, h!"}
+
+ 
 
 
 
