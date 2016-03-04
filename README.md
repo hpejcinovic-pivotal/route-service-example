@@ -40,16 +40,19 @@ cf tail protected-rest-service
 ~~~
 
 - from terminal 2:
+~~~
 cd security-service
 gradle build
 cf push --no-start
 cf enable-diego security-service
 cf start security-service
 cf tail security-service
+~~~
 
-
+~~~
 cf create-user-provided-service sec-route-service -r https://security-service.bosh-lite.com
 cf bind-route-service bosh-lite.com sec-route-service --hostname protected-rest-service
+~~~
 
 - test the security-service from Postman (www.getpostman.com) or similar by invoking 
 https://protected-rest-service.bosh-lite.com/greeting?name=jo
@@ -66,14 +69,16 @@ you should get back
 {"id":1,"content":"Hello, jo!"}
 
 
+
 If you'd like to invoke the protected-rest-service from another rest client you can use the third project
 - from terminal 3: 
-
+~~~
 cd rest-client
 gradle build 
 cf push --no-start
 cf enable-diego rest-client
 cf start rest-client
+~~~
 
 The token in this service is provided in manifest.yml To test the service you can use postman and invoke
 https://rest-client.bosh-lite.com/sayHi?name=h you should get something like
